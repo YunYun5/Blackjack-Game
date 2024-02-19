@@ -71,6 +71,10 @@ public class HandTest {
         hand.addCard(new Card(Rank.ACE, Suit.HEARTS));
         hand.addCard(new Card(Rank.TWO, Suit.SPADES));
         assertFalse(hand.isBlackjack());
+
+        hand.addCard(new Card(Rank.TEN, Suit.SPADES));
+        hand.addCard(new Card(Rank.EIGHT, Suit.SPADES));
+        assertFalse(hand.isBlackjack());
     }
 
     @Test
@@ -84,6 +88,12 @@ public class HandTest {
     void testIsNotSoftHand() {
         hand.addCard(new Card(Rank.KING, Suit.HEARTS));
         hand.addCard(new Card(Rank.EIGHT, Suit.SPADES));
+        assertFalse(hand.isSoftHand());
+
+        hand.clear();
+        hand.addCard(new Card(Rank.EIGHT, Suit.SPADES));
+        hand.addCard(new Card(Rank.ACE, Suit.DIAMONDS));
+        hand.addCard(new Card(Rank.KING, Suit.HEARTS));
         assertFalse(hand.isSoftHand());
     }
 
