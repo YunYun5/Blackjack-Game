@@ -29,7 +29,7 @@ class PlayerHandTest {
     @Test
     void handToStringSingleCard() {
         hand.addCard(new Card(Rank.TWO, Suit.HEARTS));
-        assertEquals("TWO of HEARTS, 2", hand.handToString().trim());
+        assertEquals("TWO of HEARTS, 2", hand.handToString());
     }
 
     @Test
@@ -37,7 +37,7 @@ class PlayerHandTest {
         hand.addCard(new Card(Rank.TWO, Suit.HEARTS));
         hand.addCard(new Card(Rank.THREE, Suit.SPADES));
         String expected = "TWO of HEARTS, THREE of SPADES, 5";
-        assertEquals(expected, hand.handToString().trim());
+        assertEquals(expected, hand.handToString());
     }
 
     @Test
@@ -45,14 +45,14 @@ class PlayerHandTest {
         hand.addCard(new Card(Rank.ACE, Suit.HEARTS));
         hand.addCard(new Card(Rank.TWO, Suit.DIAMONDS));
         String expected = "ACE of HEARTS, TWO of DIAMONDS, 3/13";
-        assertEquals(expected, hand.handToString().trim());
+        assertEquals(expected, hand.handToString());
     }
 
     @Test
     void handToStringNoSoftHand() {
         hand.addCard(new Card(Rank.TEN, Suit.HEARTS));
         hand.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
-        assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", hand.handToString().trim());
+        assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", hand.handToString());
     }
 }
 

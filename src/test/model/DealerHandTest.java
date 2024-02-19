@@ -44,8 +44,8 @@ public class DealerHandTest {
     @Test
     void testHandToStringFirstHand() {
         DealerHand dealer = new DealerHand();
-        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS)); // Assume face-up card
-        dealer.addCard(new Card(Rank.ACE, Suit.SPADES)); // Assume hidden card
+        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.ACE, Suit.SPADES));
         String result = dealer.handToString(true);
         assertTrue(result.startsWith("[HIDDEN]"));
     }
@@ -65,7 +65,7 @@ public class DealerHandTest {
         DealerHand dealer = new DealerHand();
         dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
         dealer.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
-        assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", dealer.handToString(false).trim());
+        assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", dealer.handToString(false));
     }
 
 

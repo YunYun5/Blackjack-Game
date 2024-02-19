@@ -10,7 +10,7 @@ public class PlayerTest {
 
     @BeforeEach
     void runBefore() {
-        player = new Player(1000); // Initialize player with a balance of 1000
+        player = new Player(1000);
     }
 
     @Test

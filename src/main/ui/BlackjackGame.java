@@ -25,7 +25,7 @@ public class BlackjackGame {
         this.scanner = new Scanner(System.in);
         int numberOfDecks = getNumberOfDecks();
         this.deck = new Deck(numberOfDecks);
-        this.player = new Player(1000); // Start with 100 chips, for example
+        this.player = new Player(1000);
         this.dealerHand = new DealerHand();
 
         startGame();
