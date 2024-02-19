@@ -20,25 +20,21 @@ public class DealerHand extends Hand {
     // Effects: Returns the string that will be displayed in console of the cards of the dealer. Says hidden instead of
     // the first card if its the firstHand if not returns all the cards and the total value on the side.
     public String handToString(boolean firstHand) {
-        if (hand.size() > 1) {
-            if (firstHand) {
-                return "[HIDDEN], " + hand.get(0).cardToString() + ", " + hand.get(0).getCardValue();
-            } else {
-                StringBuilder sb = new StringBuilder();
-                for (Card card : hand) {
-                    sb.append(card.cardToString()).append(", ");
-                }
-                if (!hand.isEmpty()) {
-                    sb.setLength(sb.length() - 2);
-                }
-                if (isSoftHand()) {
-                    return sb + ", " + (getTotal() - 10) + "/" + getTotal();
-                } else {
-                    return sb + ", " + getTotal();
-                }
-            }
+        if (firstHand) {
+            return "[HIDDEN], " + hand.get(0).cardToString() + ", " + hand.get(0).getCardValue();
         } else {
-            return super.toString();
+            StringBuilder sb = new StringBuilder();
+            for (Card card : hand) {
+                sb.append(card.cardToString()).append(", ");
+            }
+            if (!hand.isEmpty()) {
+                sb.setLength(sb.length() - 2);
+            }
+            if (isSoftHand()) {
+                return sb + ", " + (getTotal() - 10) + "/" + getTotal();
+            } else {
+                return sb + ", " + getTotal();
+            }
         }
     }
 }

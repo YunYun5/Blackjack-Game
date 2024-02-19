@@ -22,6 +22,11 @@ class PlayerHandTest {
     }
 
     @Test
+    void testHandToStringEmpty() {
+        assertEquals(", 0", hand.handToString());
+    }
+
+    @Test
     void handToStringSingleCard() {
         hand.addCard(new Card(Rank.TWO, Suit.HEARTS));
         assertEquals("TWO of HEARTS, 2", hand.handToString().trim());

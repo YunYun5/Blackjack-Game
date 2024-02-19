@@ -15,16 +15,30 @@ public class DealerHandTest {
     }
 
     @Test
+    void testHandToStringEmpty() {
+        DealerHand dealer = new DealerHand();
+        assertEquals(", 0", dealer.handToString(false));
+    }
+
+    @Test
     void testShouldDealerHit() {
         DealerHand dealer = new DealerHand();
-        dealer.addCard(new Card(Rank.SIX, Suit.CLUBS)); // Total now 6
+        dealer.addCard(new Card(Rank.SIX, Suit.CLUBS));
         assertTrue(dealer.shouldDealerHit());
 
-        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS)); // Total now 16
+        dealer.addCard(new Card(Rank.ACE, Suit.HEARTS));
         assertTrue(dealer.shouldDealerHit());
 
-        dealer.addCard(new Card(Rank.ACE, Suit.SPADES)); // Total could be 17 or 7
+        dealer.clear();
+        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.TEN, Suit.CLUBS));
         assertFalse(dealer.shouldDealerHit());
+
+        dealer.clear();
+        dealer.addCard(new Card(Rank.EIGHT, Suit.CLUBS));
+        dealer.addCard(new Card(Rank.ACE, Suit.SPADES));
+        assertFalse(dealer.shouldDealerHit());
+
     }
 
     @Test
@@ -45,4 +59,14 @@ public class DealerHandTest {
         assertFalse(result.startsWith("[HIDDEN]"));
         assertTrue(result.contains("TEN of HEARTS") && result.contains("ACE of SPADES"));
     }
+
+    @Test
+    void handToStringNoSoftHand() {
+        DealerHand dealer = new DealerHand();
+        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
+        assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", dealer.handToString(false).trim());
+    }
+
+
 }

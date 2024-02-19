@@ -33,8 +33,10 @@ public class Deck {
         for (int i = 0; i < amount; i++) {
             for (Suit suit : Suit.values()) {
                 for (Rank rank : Rank.values()) {
-                    Card card = new Card(rank, suit);
-                    deck.add(card);
+                    if (!rank.equals(Rank.NULL)) {
+                        Card card = new Card(rank, suit);
+                        deck.add(card);
+                    }
                 }
             }
         }

@@ -42,6 +42,8 @@ class CardTest {
         assertEquals(8, new Card(Rank.EIGHT, Suit.SPADES).getCardValue());
         assertEquals(9, new Card(Rank.NINE, Suit.CLUBS).getCardValue());
         assertEquals(10, new Card(Rank.TEN, Suit.HEARTS).getCardValue());
+
+        assertEquals(0, new Card(Rank.NULL, Suit.HEARTS).getCardValue());
     }
 
     @Test

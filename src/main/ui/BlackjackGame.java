@@ -47,7 +47,7 @@ public class BlackjackGame {
     private void playRound() {
         handlePlayerBet();
 
-        if (deck.getDeckSize() == 0) {
+        if (deck.getDeckSize() < 0) {
             this.deck = new Deck(getNumberOfDecksNoCardsLeft());
         }
 
@@ -99,11 +99,12 @@ public class BlackjackGame {
     private void playerTurnLogic() {
         boolean playerTurn = true;
         while (playerTurn) {
-            System.out.println("Your hand: " + player.getHand().handToString());
-            System.out.println("Dealer's hand: " + dealerHand.handToString(true));
-            System.out.println("Hit, Stand or Quit? (H/S/Q): ");
+            giveOptions();
             String decision = scanner.next();
             if ("H".equalsIgnoreCase(decision)) {
+                if (deck.getDeckSize() == 0) {
+                    this.deck = new Deck(getNumberOfDecksNoCardsLeft());
+                }
                 player.getHand().addCard(deck.getNextCard());
                 if (player.getHand().isBusted()) {
                     System.out.println("Bust! You lose.");
@@ -119,6 +120,12 @@ public class BlackjackGame {
                 System.out.println("Invalid input. Please enter H, S, or Q.");
             }
         }
+    }
+
+    private void giveOptions() {
+        System.out.println("Your hand: " + player.getHand().handToString());
+        System.out.println("Dealer's hand: " + dealerHand.handToString(true));
+        System.out.println("Hit, Stand or Quit? (H/S/Q): ");
     }
 
     // Effects: Ends the game

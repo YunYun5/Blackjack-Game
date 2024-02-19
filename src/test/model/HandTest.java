@@ -69,6 +69,7 @@ public class HandTest {
     @Test
     void testIsNotBlackjack() {
         hand.addCard(new Card(Rank.ACE, Suit.HEARTS));
+        hand.addCard(new Card(Rank.TWO, Suit.SPADES));
         assertFalse(hand.isBlackjack());
     }
 

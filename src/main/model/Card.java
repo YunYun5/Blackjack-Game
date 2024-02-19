@@ -38,7 +38,7 @@ public class Card {
                 case NINE: return 9;
                 case TEN: return 10;
                 default:
-                    throw new IllegalStateException("Unknown Card Rank");
+                    return 0;
             }
         }
     }
