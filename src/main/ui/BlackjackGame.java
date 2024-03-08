@@ -26,35 +26,38 @@ public class BlackjackGame {
     private DealerHand dealerHand;
     private final Scanner scanner;
     private final JsonWriter jsonWriter;
-    private boolean loaded;
+    private boolean wasLoadedFromFile;
 
-    // Effects: starts a new scanner, makes a new deck with the number of decks the player wants to play with, makes a
-    // new player with 1000 balance, makes a new dealer and starts the game.
+    // Effects: starts a new scanner and initializes the JSONWriter with the file destination and sets
+    // wasLoadedFromFile to false
     public BlackjackGame() {
         this.scanner = new Scanner(System.in);
         this.jsonWriter = new JsonWriter(JSON_FILE_LOCATION);
-        this.loaded = false;
+        this.wasLoadedFromFile = false;
 
         offerGameStartOptions();
     }
 
+    // Effects: Give player the chance to play a saved game or start a new one. Then
+    // start the game and proceed accordingly
     private void offerGameStartOptions() {
         System.out.println("Start New Game or Load Saved Game? (NEW/LOAD): ");
         String choice = scanner.nextLine();
         if ("load".equalsIgnoreCase(choice)) {
             loadGame();
-            loaded = true;
+            wasLoadedFromFile = true;
         } else {
             initializeNewGame();
         }
         startGame();
     }
 
+    // Effects: makes a new deck with the number of decks the player wants to play with, makes a
+    // new player with 1000 balance, makes a new dealer and starts the game.
     private void initializeNewGame() {
-        // Your initialization code for a new game goes here
         int numberOfDecks = getNumberOfDecks();
         this.deck = new Deck(numberOfDecks);
-        this.player = new Player(1000); // Example starting balance
+        this.player = new Player(1000);
         this.dealerHand = new DealerHand();
     }
 
@@ -76,11 +79,11 @@ public class BlackjackGame {
             this.deck = new Deck(getNumberOfDecksNoCardsLeft());
         }
 
-        if (!loaded) {
+        if (!wasLoadedFromFile) {
             // Dealing cards
             dealFirstHands();
         }
-        loaded = false;
+        wasLoadedFromFile = false;
 
         handlePlayerBet();
 
@@ -155,6 +158,9 @@ public class BlackjackGame {
         }
     }
 
+    // Modifies: this
+    // Effects: Checks if the deck is empty if it is creates a new deck
+    // then adds a new card to the player hand
     private void attemptToAddCardToPlayerHand() {
         if (deck.getDeckSize() == 0) {
             this.deck = new Deck(getNumberOfDecksNoCardsLeft());
@@ -162,6 +168,8 @@ public class BlackjackGame {
         player.getHand().addCard(deck.getNextCard());
     }
 
+    // Effects: Saves the game by writing it to a JSON file. Tells the user where it was saved to
+    // throws FileNotFoundException if it cannot find file
     private void saveGame() {
         GameState gameState = new GameState(player, dealerHand, deck);
 
@@ -175,6 +183,9 @@ public class BlackjackGame {
         }
     }
 
+    // Modifies: this
+    // Effects: Loads the game from the previous time it was saved. throws IOException
+    // if it cannot load the file
     private void loadGame() {
         JsonReader jsonReader = new JsonReader(JSON_FILE_LOCATION);
         try {
@@ -225,11 +236,11 @@ public class BlackjackGame {
                 endGame();
             } else if (decision.equalsIgnoreCase("load")) {
                 loadGame();
-                loaded = true;
+                wasLoadedFromFile = true;
             } else {
                 System.out.println("Invalid input. Please enter a numeric value, save, quit or load.");
             }
-            handleLoaded(loaded);
+            handleWasLoadedFromFile(wasLoadedFromFile);
         }
 
         int bet = scanner.nextInt();
@@ -242,8 +253,10 @@ public class BlackjackGame {
         player.placeBet(bet);
     }
 
-    private void handleLoaded(boolean loaded) {
-        if (loaded) {
+    // Effects: helper for the handlePlayerBet(). if the current game was loaded from a file
+    // it shows balance then asks for bet amount
+    private void handleWasLoadedFromFile(boolean wasLoadedFromFile) {
+        if (wasLoadedFromFile) {
             System.out.println("You have " + player.getBalance() + " chips.");
             System.out.print("Place your bet, save, quit or load (amount/save/quit/load): ");
         } else {

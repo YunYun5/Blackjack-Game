@@ -30,8 +30,11 @@ public class Deck implements Writable {
         shuffleDeck();
     }
 
+    // Requries: cards.size() != 0
+    // Modifies: this
+    // Effects: Creates a new deck with the list of cards that was given to it (used for loading game)
     public Deck(ArrayList<Card> cards) {
-        this.deck = new ArrayList<>(cards); // Create a new ArrayList from the provided list
+        this.deck = new ArrayList<>(cards);
     }
 
     // Modifies: this
@@ -68,6 +71,7 @@ public class Deck implements Writable {
         return this.deck.size();
     }
 
+    // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

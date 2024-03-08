@@ -23,6 +23,9 @@ public class Player implements Writable {
         this.currentBet = 0;
     }
 
+    // Requires: balance > 0, hand != null, currentBet > 0
+    // Modifies: this
+    // Effects: Creates a new player with the given balance, cards in the hand and current bet
     public Player(int balance, PlayerHand hand, int currentBet) {
         this.balance = balance;
         this.hand = hand;
@@ -73,6 +76,7 @@ public class Player implements Writable {
         return hand;
     }
 
+    // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

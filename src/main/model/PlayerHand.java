@@ -32,6 +32,7 @@ public class PlayerHand extends Hand implements Writable {
         }
     }
 
+    // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

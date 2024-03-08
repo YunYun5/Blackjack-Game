@@ -103,4 +103,13 @@ public class HandTest {
         hand.clear();
         assertEquals(0, hand.hand.size());
     }
+
+    @Test
+    void testGetNumCards() {
+        hand.addCard(new Card(Rank.KING, Suit.SPADES));
+        hand.addCard(new Card(Rank.THREE, Suit.CLUBS));
+        assertEquals(2, hand.getNumOfCards());
+        hand.addCard(new Card(Rank.EIGHT, Suit.SPADES));
+        assertEquals(3, hand.getNumOfCards());
+    }
 }

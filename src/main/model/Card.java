@@ -68,6 +68,7 @@ public class Card implements Writable {
         return this.rank + " of " + this.suit;
     }
 
+    // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

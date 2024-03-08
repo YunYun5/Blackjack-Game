@@ -89,6 +89,7 @@ public class Hand implements Writable {
         return this.hand;
     }
 
+    // Effects: Returns object in JSON format
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         JSONArray handJsonArray = new JSONArray();

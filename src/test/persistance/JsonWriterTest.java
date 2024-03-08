@@ -1,7 +1,6 @@
 package persistance;
 
-import model.Card;
-import model.Player;
+import model.*;
 import model.enums.Rank;
 import model.enums.Suit;
 import org.junit.jupiter.api.Test;
@@ -28,14 +27,20 @@ public class JsonWriterTest {
     }
 
     @Test
-    void testWriterWithPlayer() {
+    void testWriterWithGameState() {
         try {
-            Player player = new Player(1000); // Example balance
-            player.getHand().addCard(new Card(Rank.ACE, Suit.HEARTS)); // Example card, adjust as per your implementation
+
+            Player player = new Player(1000);
+            player.getHand().addCard(new Card(Rank.ACE, Suit.HEARTS));
+
+            DealerHand dHand = new DealerHand();
+            dHand.addCard(new Card(Rank.TWO, Suit.CLUBS));
+
+            GameState gameState = new GameState(player, dHand, new Deck(1));
 
             JsonWriter writer = new JsonWriter("./data/testPlayer.json");
             writer.open();
-            writer.write(player); // Serialize the player's state
+            writer.write(gameState);
             writer.close();
 
             String content = Files.readString(Path.of("./data/testPlayer.json"));

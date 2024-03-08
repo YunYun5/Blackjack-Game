@@ -2,7 +2,7 @@ package persistance;
 
 import org.json.JSONObject;
 
-// Interface to make JSONObjects
+// Interface used to make JSONObjects
 public interface Writable {
 
     // Effects returns as JSONObject

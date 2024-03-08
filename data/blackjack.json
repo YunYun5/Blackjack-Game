@@ -1,0 +1,44 @@
+{
+    "deck": {"cards": [
+        {
+            "rank": "FIVE",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "NINE",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "SEVEN",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "TWO",
+            "suit": "DIAMONDS"
+        }
+    ]},
+    "dealerHand": {"cards": [
+        {
+            "rank": "EIGHT",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "KING",
+            "suit": "SPADES"
+        }
+    ]},
+    "player": {
+        "balance": 1200,
+        "playerHand": {"cards": [
+            {
+                "rank": "SIX",
+                "suit": "SPADES"
+            },
+            {
+                "rank": "ACE",
+                "suit": "DIAMONDS"
+            }
+        ]},
+        "currentBet": 0
+    }
+}
