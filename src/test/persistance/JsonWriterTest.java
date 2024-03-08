@@ -25,9 +25,18 @@ public class JsonWriterTest {
     }
 
     @Test
+    void testCloseWhenWriterIsNull() {
+        try {
+            JsonWriter writer = new JsonWriter("./data/writerNull.json");
+            writer.close();
+        } catch (Exception e) {
+            // pass
+        }
+    }
+
+    @Test
     void testWriterWithGameState() {
         try {
-
             Player player = new Player(1000);
             player.getHand().addCard(new Card(Rank.ACE, Suit.HEARTS));
 
