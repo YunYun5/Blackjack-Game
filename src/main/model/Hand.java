@@ -1,5 +1,9 @@
 package model;
 
+import persistance.Writable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +11,7 @@ import java.util.ArrayList;
  * Provides functionality to add cards, calculate the total value of the hand,
  * determine if the hand is a blackjack, busted, or a soft hand, and to clear the hand of cards.
  */
-public class Hand {
+public class Hand implements Writable {
 
     ArrayList<Card> hand;
 
@@ -75,5 +79,23 @@ public class Hand {
     // Effects: Clears the cards in the hand.
     public void clear() {
         hand.clear();
+    }
+
+    public int getNumOfCards() {
+        return this.hand.size();
+    }
+
+    public ArrayList<Card> getCards() {
+        return this.hand;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray handJsonArray = new JSONArray();
+        for (Card card : this.hand) {
+            handJsonArray.put(card.toJson());
+        }
+        json.put("hand", handJsonArray);
+        return json;
     }
 }

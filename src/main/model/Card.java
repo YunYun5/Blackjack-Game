@@ -2,13 +2,15 @@ package model;
 
 import model.enums.Rank;
 import model.enums.Suit;
+import persistance.Writable;
+import org.json.JSONObject;
 
 /**
  * Represents a single playing card with a suit and rank.
  * This class provides methods to determine the card's value in the game,
  * as well as to check if the card is an Ace or a face card.
  */
-public class Card {
+public class Card implements Writable {
     private final Rank rank;
     private final Suit suit;
 
@@ -64,5 +66,13 @@ public class Card {
     // Effects: return the card as a string with the rank and suit seperated by "of"
     public String cardToString() {
         return this.rank + " of " + this.suit;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("rank", rank.toString());
+        json.put("suit", suit.toString());
+        return json;
     }
 }

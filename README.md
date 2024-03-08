@@ -29,3 +29,5 @@ Being in this risk-free environment also lets me practice Basic Strategy without
 - As a user, I want to be able to view the Cards in my Hand and view the dealers Hand to see if I won
 - As a user, I want to be able to "stand" if I am happy with the value of my hand
 - As a user, I want to be able to increase or decrease my Bet between rounds to my liking
+- As a user, I want to be able to save the state of the game (the deck and hands) and my balance aswell as my current bet when I want to
+- As a user, I want to be able to load the state of the game (the deck and hands) and my balance aswell as my old bet when I want to

@@ -1,11 +1,14 @@
 package model;
 
+import persistance.Writable;
+import org.json.JSONObject;
+
 /**
  * Represents a player in the game.
  * Manages the player's balance, the bets placed, and the hand of cards.
  * Allows for betting, winning, pushing (tie), and losing bets,
  */
-public class Player {
+public class Player implements Writable {
 
     private int balance;
     private final PlayerHand hand;
@@ -18,6 +21,12 @@ public class Player {
         this.balance = balance;
         this.hand = new PlayerHand();
         this.currentBet = 0;
+    }
+
+    public Player(int balance, PlayerHand hand, int currentBet) {
+        this.balance = balance;
+        this.hand = hand;
+        this.currentBet = currentBet;
     }
 
     // Modifies: this
@@ -62,6 +71,15 @@ public class Player {
 
     public PlayerHand getHand() {
         return hand;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("balance", balance);
+        json.put("playerHand", hand.toJson());
+        json.put("currentBet", currentBet);
+        return json;
     }
 
 }

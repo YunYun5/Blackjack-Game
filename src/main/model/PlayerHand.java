@@ -1,10 +1,14 @@
 package model;
 
+import persistance.Writable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /**
  * Represents a player's hand in a game of Blackjack. Extends the Hand class to include
  * a handToString method to return the string with the cards.
  */
-public class PlayerHand extends Hand {
+public class PlayerHand extends Hand implements Writable {
 
     // Effects: Creates a empty hand using super
     public PlayerHand() {
@@ -26,5 +30,16 @@ public class PlayerHand extends Hand {
         } else {
             return sb + ", " + getTotal();
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray cardsJsonArray = new JSONArray();
+        for (Card card : hand) {
+            cardsJsonArray.put(card.toJson());
+        }
+        json.put("cards", cardsJsonArray);
+        return json;
     }
 }

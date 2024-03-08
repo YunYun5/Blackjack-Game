@@ -1,11 +1,15 @@
 package model;
 
+import persistance.Writable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 /**
  * Represents the dealer's hand in a game of Blackjack. Extends the Hand class
  * to include specific behaviors for the dealer, such as determining whether the
  * dealer should take another card based on Blackjack rules.
  */
-public class DealerHand extends Hand {
+public class DealerHand extends Hand implements Writable {
 
     // Effects: Makes a dealer with no cards in the hand using super
     public DealerHand() {
@@ -36,5 +40,16 @@ public class DealerHand extends Hand {
                 return sb + ", " + getTotal();
             }
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray cardsJsonArray = new JSONArray();
+        for (Card card : hand) {
+            cardsJsonArray.put(card.toJson());
+        }
+        json.put("cards", cardsJsonArray);
+        return json;
     }
 }

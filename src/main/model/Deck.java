@@ -2,6 +2,9 @@ package model;
 
 import model.enums.Rank;
 import model.enums.Suit;
+import persistance.Writable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,9 +14,9 @@ import java.util.Collections;
  * Represents a deck of playing cards used in the game.
  * Lets you create a specified number of decks, shuffling, and dealing cards.
  */
-public class Deck {
+public class Deck implements Writable {
 
-    private final int amount;
+    private int amount;
     private final ArrayList<Card> deck;
 
     // Requires: amount is greater 0
@@ -25,6 +28,10 @@ public class Deck {
         this.deck = new ArrayList<>();
         createDeck();
         shuffleDeck();
+    }
+
+    public Deck(ArrayList<Card> cards) {
+        this.deck = new ArrayList<>(cards); // Create a new ArrayList from the provided list
     }
 
     // Modifies: this
@@ -59,6 +66,17 @@ public class Deck {
     // Effects: Returns the amount of cards in the deck
     public int getDeckSize() {
         return this.deck.size();
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        JSONArray deckJsonArray = new JSONArray();
+        for (Card card : this.deck) {
+            deckJsonArray.put(card.toJson());
+        }
+        json.put("cards", deckJsonArray);
+        return json;
     }
 }
 
