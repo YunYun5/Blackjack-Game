@@ -7,10 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class JsonWriterTest {
@@ -43,16 +41,31 @@ public class JsonWriterTest {
             writer.write(gameState);
             writer.close();
 
-            String content = Files.readString(Path.of("./data/testPlayer.json"));
-            assertTrue(content.contains("balance"));
-            assertTrue(content.contains("1000"));
-            assertTrue(content.contains("rank"));
-            assertTrue(content.contains("ACE"));
-            assertTrue(content.contains("suit"));
-            assertTrue(content.contains("HEARTS"));
-
+            JsonReader reader = new JsonReader("./data/testPlayer.json");
+            GameState gState = reader.read();
+            assertEquals(1000, gState.getPlayer().getBalance());
+            assertEquals(Rank.ACE, gState.getPlayer().getHand().getCards().get(0).getRank());
+            assertEquals(Suit.HEARTS, gState.getPlayer().getHand().getCards().get(0).getSuit());
         } catch (IOException e) {
             fail("Was not excpecting exception");
+        }
+    }
+
+    @Test
+    void testWriterWithHand() {
+        try {
+            Hand hand = new Hand();
+            Card card1 = new Card(Rank.ACE, Suit.HEARTS);
+            Card card2 = new Card(Rank.TEN, Suit.SPADES);
+            hand.addCard(card1);
+            hand.addCard(card2);
+
+            JsonWriter writer = new JsonWriter("./data/testPlayer.json");
+            writer.open();
+            writer.write(hand);
+            writer.close();
+        } catch (IOException e) {
+            fail("Should not throw error");
         }
     }
 }
