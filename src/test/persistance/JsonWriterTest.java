@@ -55,6 +55,9 @@ public class JsonWriterTest {
             assertEquals(1000, gState.getPlayer().getBalance());
             assertEquals(Rank.ACE, gState.getPlayer().getHand().getCards().get(0).getRank());
             assertEquals(Suit.HEARTS, gState.getPlayer().getHand().getCards().get(0).getSuit());
+            assertEquals(Rank.TWO, gState.getDealerHand().getCards().get(0).getRank());
+            assertEquals(Suit.CLUBS, gState.getDealerHand().getCards().get(0).getSuit());
+            assertEquals(52, gState.getDeck().getDeckSize());
         } catch (IOException e) {
             fail("Was not excpecting exception");
         }

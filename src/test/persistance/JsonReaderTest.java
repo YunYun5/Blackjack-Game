@@ -64,6 +64,11 @@ public class JsonReaderTest {
             assertFalse(player.getHand().getCards().isEmpty());
             assertFalse(dealerHand.getCards().isEmpty());
             assertTrue(deck.getDeckSize() > 0);
+            assertEquals(Rank.ACE, player.getHand().getCards().get(0).getRank());
+            assertEquals(Suit.HEARTS, player.getHand().getCards().get(0).getSuit());
+            assertEquals(Rank.TWO, dealerHand.getCards().get(0).getRank());
+            assertEquals(Suit.SPADES, dealerHand.getCards().get(0).getSuit());
+            assertEquals(52, deck.getDeckSize());
         } catch (IOException e) {
             fail("Failed to read from a general game state file.");
         }
