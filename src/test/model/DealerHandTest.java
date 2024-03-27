@@ -68,5 +68,38 @@ public class DealerHandTest {
         assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", dealer.handToString(false));
     }
 
+    @Test
+    void testHandValueNotFirstHandNotSoft() {
+        DealerHand dealer = new DealerHand();
+        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
+        assertEquals("19", dealer.handValue(false));
+    }
+
+    @Test
+    void testHandValueNotFirstSoft() {
+        DealerHand dealer = new DealerHand();
+        dealer.addCard(new Card(Rank.NINE, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.ACE, Suit.SPADES));
+        assertEquals("10/20", dealer.handValue(false));
+    }
+
+    @Test
+    void testHandValueFirstNotAce() {
+        DealerHand dealer = new DealerHand();
+        dealer.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
+        dealer.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        assertEquals("10", dealer.handValue(true));
+    }
+
+    @Test
+    void testHandValueFirstAce() {
+        DealerHand dealer = new DealerHand();
+        dealer.addCard(new Card(Rank.NINE, Suit.HEARTS));
+        dealer.addCard(new Card(Rank.ACE, Suit.SPADES));
+        assertEquals("1/11", dealer.handValue(true));
+    }
+
+
 
 }

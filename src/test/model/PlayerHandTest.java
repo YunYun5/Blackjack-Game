@@ -54,5 +54,19 @@ class PlayerHandTest {
         hand.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
         assertEquals("TEN of HEARTS, NINE of DIAMONDS, 19", hand.handToString());
     }
+
+    @Test
+    void testHandValue() {
+        hand.addCard(new Card(Rank.TEN, Suit.HEARTS));
+        hand.addCard(new Card(Rank.NINE, Suit.DIAMONDS));
+        assertEquals("19", hand.handValue());
+    }
+
+    @Test
+    void testHandValueSoft() {
+        hand.addCard(new Card(Rank.ACE, Suit.HEARTS));
+        hand.addCard(new Card(Rank.TWO, Suit.DIAMONDS));
+        assertEquals("3/13", hand.handValue());
+    }
 }
 

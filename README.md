@@ -31,3 +31,13 @@ Being in this risk-free environment also lets me practice Basic Strategy without
 - As a user, I want to be able to increase or decrease my Bet between rounds to my liking
 - As a user, I want to be able to save the state of the game (the deck and hands) and my balance aswell as my current bet when I want to
 - As a user, I want to be able to load the state of the game (the deck and hands) and my balance aswell as my old bet when I want to
+
+## Instructions for Grader:
+- Note: Once the application is launched the Hit and Stand button will be disabled this is because the user needs to first place a bet. So when the application is launched just choose a bet you want by clicking on the chips. You can increase your bet by continuously clicking on different chips. Your current bet will be displayed on the bottom right and to submit the bet you just have to click stand or hit.
+
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking on the hit button which will add another card to your "the players" hand.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking on the stand button which will add cards to the dealers hand until the games conditions are met.
+- You can locate my visual component by just looking at the screen. Both the cards appearing after pressing hit, or stand and the chips are all visual components
+- You can save the state of my application by clicking the save button at any time.
+- You can reload the state of my application by clicking the load button at any time. (Note: The fields and the state of the application gets reloaded when you click load. But to see the effects of the reload you will need to click on one of the chips and place a bet. This was designed like this because I did not want a user to place a bet after seeing their cards because that is not how the game is traditionally played. But like staed this is completely visual the game gets reloaded just not displayed until a bet is placed.)

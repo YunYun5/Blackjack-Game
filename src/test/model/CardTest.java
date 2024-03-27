@@ -59,6 +59,11 @@ class CardTest {
         assertTrue(new Card(Rank.ACE, Suit.SPADES).isAce());
         assertFalse(new Card(Rank.KING, Suit.HEARTS).isAce());
     }
+    
+    @Test
+    void testcardToImagePathString() {
+        assertEquals("ace_of_spades", new Card(Rank.ACE, Suit.SPADES).cardToImagePathString());
+    }
 
     @Test
     void testGetSuit() {
