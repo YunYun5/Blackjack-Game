@@ -42,6 +42,23 @@ public class DealerHand extends Hand implements Writable {
         }
     }
 
+    // Effects: Returns the value of the hand as a string.
+    public String handValue(boolean firstHand) {
+        if (firstHand) {
+            if (hand.get(1).isAce()) {
+                return "1/11";
+            } else {
+                return Integer.toString(hand.get(1).getCardValue());
+            }
+        } else {
+            if (isSoftHand()) {
+                return (getTotal() - 10) + "/" + getTotal();
+            } else {
+                return Integer.toString(getTotal());
+            }
+        }
+    }
+
     // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {

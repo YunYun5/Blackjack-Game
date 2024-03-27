@@ -35,7 +35,7 @@ public class Player implements Writable {
     // Modifies: this
     // Effects: Sets the current bet to the bet and the balance to the bet subtracted
     public void placeBet(int bet) {
-        this.currentBet = bet;
+        this.currentBet += bet;
         this.balance -= bet;
     }
 
@@ -70,6 +70,13 @@ public class Player implements Writable {
 
     public int getCurrentBet() {
         return currentBet;
+    }
+
+    // Requires: bet > 0
+    // Modifies: this
+    // Effects:Sets the current bet to the passed bet
+    public void setCurrentBet(int bet) {
+        this.currentBet = bet;
     }
 
     public PlayerHand getHand() {

@@ -1,8 +1,10 @@
 package model;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PlayerTest {
 
@@ -33,6 +35,13 @@ public class PlayerTest {
         player.winBet(false);
         assertEquals(1100, player.getBalance());
         assertEquals(0, player.getCurrentBet());
+    }
+
+    @Test
+    void testSetCurrentBet() {
+        assertEquals(0, player.getCurrentBet());
+        player.setCurrentBet(100);
+        assertEquals(100, player.getCurrentBet());
     }
 
     @Test

@@ -68,6 +68,11 @@ public class Card implements Writable {
         return this.rank + " of " + this.suit;
     }
 
+    // Effects: return the path of the card in the data folder
+    public String cardToImagePathString() {
+        return (this.rank + "_of_" + this.suit).toLowerCase();
+    }
+
     // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {

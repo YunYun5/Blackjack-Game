@@ -32,6 +32,15 @@ public class PlayerHand extends Hand implements Writable {
         }
     }
 
+    // Effects: Returns the value of the hand as a string.
+    public String handValue() {
+        if (isSoftHand()) {
+            return (getTotal() - 10) + "/" + getTotal();
+        } else {
+            return Integer.toString(getTotal());
+        }
+    }
+
     // Effects: Returns object in JSON format
     @Override
     public JSONObject toJson() {
