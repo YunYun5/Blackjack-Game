@@ -48,6 +48,7 @@ public class Player implements Writable {
         } else {
             this.balance += currentBet * 2;
         }
+        EventLog.getInstance().logEvent(new Event("Player won with a " + this.currentBet + "$ bet!"));
         this.currentBet = 0;
     }
 
@@ -55,12 +56,14 @@ public class Player implements Writable {
     // Effects: Its a die the player gets their money back and the current bet gets set to 0
     public void push() {
         this.balance += currentBet;
+        EventLog.getInstance().logEvent(new Event("Player pushed with a " + this.currentBet + "$ bet!"));
         this.currentBet = 0;
     }
 
     // Modifies: this
     // Effects: Sets current bet to 0. Doesn't need to subtract because we already subtract it when we place the bet
     public void loseBet() {
+        EventLog.getInstance().logEvent(new Event("Player lost with a " + this.currentBet + "$ bet!"));
         this.currentBet = 0;
     }
 

@@ -1,5 +1,6 @@
 package ui;
 
+import model.Event;
 import model.*;
 import persistance.JsonReader;
 import persistance.JsonWriter;
@@ -7,9 +8,17 @@ import persistance.JsonWriter;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Represents the main GUI game class.
+ * Manages the flow of the game, including dealing cards, handling player and dealer turns,
+ * and managing bets and outcomes. Allows the user to play rounds of Blackjack until they
+ * decide to quit or run out of chips.
+ */
 public class BlackjackGUI extends JFrame {
 
     private static final String JSON_FILE_LOCATION = "./data/blackjack.json";
@@ -45,6 +54,7 @@ public class BlackjackGUI extends JFrame {
     // the game and UI then starts the game
     public BlackjackGUI() {
         super("Blackjack Game");
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setSize(1200, 800);
 
         initializeGame();
@@ -82,6 +92,13 @@ public class BlackjackGUI extends JFrame {
         loadButton.addActionListener(e -> loadGame());
         saveButton.addActionListener(e -> saveGame());
         newGameButton.addActionListener(e -> startNewGame());
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent windowEvent) {
+                endGame();
+            }
+        });
     }
 
     // Modifies: this
@@ -255,7 +272,15 @@ public class BlackjackGUI extends JFrame {
     private void endGame() {
         JOptionPane.showMessageDialog(this, "Final chip count: " + player.getBalance());
         enableActionButtons(false);
+        printLog(EventLog.getInstance());
         System.exit(0);
+    }
+
+    // Effects: Loops through and prints all the events in the event log
+    private void printLog(EventLog eventLog) {
+        for (Event event : eventLog) {
+            System.out.println(event.toString());
+        }
     }
 
     // Modifies: this

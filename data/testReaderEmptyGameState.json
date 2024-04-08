@@ -1,92 +1,28 @@
 {
     "deck": {"cards": [
         {
-            "rank": "JACK",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "SEVEN",
+            "rank": "ACE",
             "suit": "SPADES"
-        },
-        {
-            "rank": "QUEEN",
-            "suit": "HEARTS"
         },
         {
             "rank": "SIX",
             "suit": "CLUBS"
-        },
-        {
-            "rank": "KING",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "TEN",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "THREE",
-            "suit": "HEARTS"
-        },
-        {
-            "rank": "SEVEN",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "QUEEN",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "KING",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "TWO",
-            "suit": "HEARTS"
-        },
-        {
-            "rank": "SIX",
-            "suit": "HEARTS"
         },
         {
             "rank": "EIGHT",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "THREE",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "TWO",
             "suit": "SPADES"
         },
         {
-            "rank": "NINE",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "ACE",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "TEN",
+            "rank": "EIGHT",
             "suit": "HEARTS"
-        },
-        {
-            "rank": "FOUR",
-            "suit": "HEARTS"
-        },
-        {
-            "rank": "JACK",
-            "suit": "CLUBS"
         },
         {
             "rank": "KING",
             "suit": "HEARTS"
         },
         {
-            "rank": "FOUR",
-            "suit": "SPADES"
+            "rank": "QUEEN",
+            "suit": "CLUBS"
         },
         {
             "rank": "QUEEN",
@@ -94,110 +30,82 @@
         },
         {
             "rank": "FIVE",
-            "suit": "DIAMONDS"
+            "suit": "SPADES"
         },
         {
             "rank": "JACK",
+            "suit": "SPADES"
+        },
+        {
+            "rank": "SIX",
             "suit": "HEARTS"
         },
         {
             "rank": "NINE",
-            "suit": "HEARTS"
-        },
-        {
-            "rank": "ACE",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "TWO",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "FIVE",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "ACE",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "TEN",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "EIGHT",
             "suit": "DIAMONDS"
         },
         {
             "rank": "TEN",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "FOUR",
-            "suit": "CLUBS"
+            "suit": "SPADES"
         },
         {
             "rank": "THREE",
-            "suit": "CLUBS"
-        },
-        {
-            "rank": "FIVE",
-            "suit": "CLUBS"
+            "suit": "DIAMONDS"
         },
         {
             "rank": "NINE",
-            "suit": "CLUBS"
+            "suit": "SPADES"
         },
         {
-            "rank": "QUEEN",
-            "suit": "CLUBS"
+            "rank": "TEN",
+            "suit": "DIAMONDS"
         },
         {
-            "rank": "ACE",
+            "rank": "NINE",
             "suit": "HEARTS"
         },
         {
-            "rank": "SIX",
+            "rank": "KING",
             "suit": "SPADES"
-        },
-        {
-            "rank": "EIGHT",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "JACK",
-            "suit": "SPADES"
-        },
-        {
-            "rank": "FOUR",
-            "suit": "DIAMONDS"
         },
         {
             "rank": "SEVEN",
-            "suit": "DIAMONDS"
-        },
-        {
-            "rank": "EIGHT",
             "suit": "HEARTS"
-        },
-        {
-            "rank": "SIX",
-            "suit": "DIAMONDS"
         },
         {
             "rank": "TWO",
             "suit": "DIAMONDS"
         },
         {
-            "rank": "SEVEN",
-            "suit": "HEARTS"
+            "rank": "FOUR",
+            "suit": "SPADES"
         },
         {
-            "rank": "NINE",
+            "rank": "QUEEN",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "FIVE",
             "suit": "DIAMONDS"
         },
         {
             "rank": "KING",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "SEVEN",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "TWO",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "SEVEN",
+            "suit": "SPADES"
+        },
+        {
+            "rank": "THREE",
             "suit": "CLUBS"
         },
         {
@@ -206,6 +114,98 @@
         },
         {
             "rank": "FIVE",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "KING",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "SIX",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "TEN",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "EIGHT",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "FIVE",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "ACE",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "EIGHT",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "SEVEN",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "THREE",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "JACK",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "JACK",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "SIX",
+            "suit": "SPADES"
+        },
+        {
+            "rank": "ACE",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "NINE",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "TWO",
+            "suit": "SPADES"
+        },
+        {
+            "rank": "FOUR",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "QUEEN",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "FOUR",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "FOUR",
+            "suit": "DIAMONDS"
+        },
+        {
+            "rank": "JACK",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "TWO",
+            "suit": "CLUBS"
+        },
+        {
+            "rank": "ACE",
+            "suit": "HEARTS"
+        },
+        {
+            "rank": "TEN",
             "suit": "HEARTS"
         }
     ]},

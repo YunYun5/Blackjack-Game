@@ -24,6 +24,8 @@ public class Hand implements Writable {
     // Effects: Adds a card to the hand
     public void addCard(Card card) {
         hand.add(card);
+        EventLog.getInstance().logEvent(new Event("Added " + card.cardToString()
+                + " to " + this.getClass().getSimpleName()));
     }
 
     // Effects: Return the total value of the hand by adding up the value of all the cards. Takes into account aces

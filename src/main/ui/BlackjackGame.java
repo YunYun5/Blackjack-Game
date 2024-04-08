@@ -1,9 +1,6 @@
 package ui;
 
-import model.DealerHand;
-import model.Deck;
-import model.GameState;
-import model.Player;
+import model.*;
 import persistance.JsonReader;
 import persistance.JsonWriter;
 
@@ -210,8 +207,16 @@ public class BlackjackGame {
     private void endGame() {
         System.out.println("Final chip count: " + player.getBalance());
         System.out.println("Thank you for playing!");
+        printLog(EventLog.getInstance());
 
         System.exit(0);
+    }
+
+    // Effects: Loops through and prints all the events in the event log
+    private void printLog(EventLog eventLog) {
+        for (Event event : eventLog) {
+            System.out.println(event.toString());
+        }
     }
 
     // Modifies: this

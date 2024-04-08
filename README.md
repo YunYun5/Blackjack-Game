@@ -41,3 +41,29 @@ Being in this risk-free environment also lets me practice Basic Strategy without
 - You can locate my visual component by just looking at the screen. Both the cards appearing after pressing hit, or stand and the chips are all visual components
 - You can save the state of my application by clicking the save button at any time.
 - You can reload the state of my application by clicking the load button at any time. (Note: The fields and the state of the application gets reloaded when you click load. But to see the effects of the reload you will need to click on one of the chips and place a bet. This was designed like this because I did not want a user to place a bet after seeing their cards because that is not how the game is traditionally played. But like staed this is completely visual the game gets reloaded just not displayed until a bet is placed.)
+
+## Event Logging
+
+### Below is a sample of how the log is printed after the close of the application
+
+The Log prints the key events in the application such as when a card is added to either the dealers or players hand and if the player wins or loses the round
+
+Sun Apr 07 20:05:09 PDT 2024 - Added TEN of CLUBS to PlayerHand 
+
+Sun Apr 07 20:05:09 PDT 2024 - Added SEVEN of HEARTS to DealerHand
+
+Sun Apr 07 20:05:09 PDT 2024 - Added JACK of HEARTS to PlayerHand
+
+Sun Apr 07 20:05:09 PDT 2024 - Added JACK of HEARTS to DealerHand
+
+Sun Apr 07 20:05:11 PDT 2024 - Player won with a 10$ bet!
+
+Sun Apr 07 20:05:16 PDT 2024 - Added EIGHT of SPADES to PlayerHand
+
+Sun Apr 07 20:05:16 PDT 2024 - Added ACE of DIAMONDS to DealerHand
+
+Sun Apr 07 20:05:16 PDT 2024 - Added JACK of SPADES to PlayerHand
+
+Sun Apr 07 20:05:16 PDT 2024 - Added NINE of HEARTS to DealerHand
+
+Sun Apr 07 20:05:17 PDT 2024 - Player lost with a 25$ bet!
