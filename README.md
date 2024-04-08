@@ -67,3 +67,9 @@ Sun Apr 07 20:05:16 PDT 2024 - Added JACK of SPADES to PlayerHand
 Sun Apr 07 20:05:16 PDT 2024 - Added NINE of HEARTS to DealerHand
 
 Sun Apr 07 20:05:17 PDT 2024 - Player lost with a 25$ bet!
+
+## Reflection
+
+If i had more time to work on the project I would probably separate the BlackjackGUI class into game logic and UI. Right now the class is handling the game flow, game logic and all UI elements which makes it bulky, harder to maintain and harder to extend/build functionality. To refactor it I would first extract the game logic such as handling of the deck, player actions (hit or stand) and determination of outcomes into new classes in the model package. Already this change would allow for easier changes to game logic and game rules without having to change anything related to the UI. After all the logic is taken out from the BlackjackGUI class I would be left only with the UI components making the classes sole purpose to receive user input, display and update the game. Lastly, I would create some type of class that can be used to mediate the separate logic and the new BlackjackGUI class like a controller of sorts. 
+
+This refactoring would lead to cleaner and more organized code where each class and method have a distinct role. It would allow easier debugging, adding features and improve overall scalability of the app. I am currently self-teaching web development so having this complete separation of logic and UI would eventually allow me to convert this app into a web app with better UI for my personal portfolio/resume.

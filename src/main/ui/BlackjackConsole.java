@@ -14,7 +14,7 @@ import java.util.Scanner;
  * and managing bets and outcomes. Allows the user to play rounds of Blackjack until they
  * decide to quit or run out of chips.
  */
-public class BlackjackGame {
+public class BlackjackConsole {
 
     private static final String JSON_FILE_LOCATION = "./data/blackjack.json";
 
@@ -27,7 +27,7 @@ public class BlackjackGame {
 
     // Effects: starts a new scanner and initializes the JSONWriter with the file destination and sets
     // wasLoadedFromFile to false
-    public BlackjackGame() {
+    public BlackjackConsole() {
         this.scanner = new Scanner(System.in);
         this.jsonWriter = new JsonWriter(JSON_FILE_LOCATION);
         this.wasLoadedFromFile = false;
